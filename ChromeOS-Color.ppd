@@ -2678,8 +2678,16 @@
 *% **** Color Mode *************************************************************
 *OpenUI *ColorModel/Color Mode: PickOne
 *OrderDependency: 180 AnySetup *ColorModel
-*DefaultColorModel: CMYK
+*DefaultColorModel: Color
+*ColorModel Color/Color: "
+	userdict /ARCMode known not {userdict /ARCMode 1 put} if
+	1 setcolormode"
+*End
 *ColorModel CMYK/Color: "
+	userdict /ARCMode known not {userdict /ARCMode 1 put} if
+	1 setcolormode"
+*End
+*ColorModel RGB/Color: "
 	userdict /ARCMode known not {userdict /ARCMode 1 put} if
 	1 setcolormode"
 *End
@@ -2690,10 +2698,6 @@
 	userdict /ARCSConv known not {userdict /ARCSConv 0 put} if
 	userdict /ARCPureB known not {userdict /ARCPureB 2 put} if
 	2 setcolormode"
-*End
-*ColorModel Auto/Automatic: "
-	userdict /ARCMode known not {userdict /ARCMode 0 put} if
-	0 setcolormode"
 *End
 *CloseUI: *ColorModel
 *% *****************************************************************************
