@@ -2678,20 +2678,14 @@
 *% **** Color Mode *************************************************************
 *OpenUI *ColorModel/Color Mode: PickOne
 *OrderDependency: 180 AnySetup *ColorModel
-*DefaultColorModel: Color
-*ColorModel Color/Color: "
-	userdict /ARCMode known not {userdict /ARCMode 1 put} if
-	1 setcolormode"
-*End
+*DefaultColorModel: CMYK
 *ColorModel CMYK/Color: "
-	userdict /ARCMode known not {userdict /ARCMode 1 put} if
-	1 setcolormode"
-*End
-*ColorModel RGB/Color: "
+	<</ProcessColorModel /DeviceCMYK>> setpagedevice
 	userdict /ARCMode known not {userdict /ARCMode 1 put} if
 	1 setcolormode"
 *End
 *ColorModel Gray/Black and White: "
+	<</ProcessColorModel /DeviceGray>> setpagedevice
 	userdict /ARCMode known not {userdict /ARCMode 2 put} if
 	userdict /ARCIntent known not {userdict /ARCIntent 4 put} if
 	userdict /ARCNGray known not {userdict /ARCNGray 2 put} if
@@ -2701,6 +2695,9 @@
 *End
 *CloseUI: *ColorModel
 *% *****************************************************************************
+
+*cupsIPPPreset print-color-mode/Color: "*ColorModel CMYK"
+*cupsIPPPreset print-color-mode/Monochrome: "*ColorModel Gray"
 
 *% **** Neutral Gray ***********************************************************
 *OpenUI *ARCNGray/Neutral Gray: PickOne
